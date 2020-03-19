@@ -61,6 +61,7 @@ public class BasicThreadPool extends Thread implements ThreadPool {
 
     //创建一个工作线程
     private void newThread() {
+        //InternalTask实现了Runnable接口，通过internalTask创建了线程thread，启动线程thread后，将执行runnable的run（）
         InternalTask internalTask = new InternalTask(runnableQueue);
         Thread thread = this.threadFactory.createThread(internalTask);
         ThreadTask threadTask = new ThreadTask(thread, internalTask);

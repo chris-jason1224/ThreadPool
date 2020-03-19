@@ -20,9 +20,9 @@ public class InternalTask implements Runnable {
 
     @Override
     public void run() {
-        //不断的从任务队列中取出一个任务来执行
         while(running && !Thread.currentThread().isInterrupted()){
             try {
+                //不断的从任务队列中取出一个任务来执行
                 Runnable task = runnableQueue.take();
                 task.run();
             }catch (Exception ex){
